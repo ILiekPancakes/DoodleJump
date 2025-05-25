@@ -16,7 +16,7 @@ private Image image;
     public void draw(Graphics g) {
     if (image == null) {
         try {
-            image = ImageIO.read(new File("bpickle.png")); // use your desired image
+            image = ImageIO.read(new File("bpickle.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

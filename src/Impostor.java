@@ -39,7 +39,6 @@ public class Impostor {
     x += velX;
     y += velY;
 
-    // ✅ Wrap horizontally
     if (x > DoodleJump.WIDTH) {
         x = -width;
     } else if (x + width < 0) {
@@ -66,7 +65,6 @@ public class Impostor {
     public void setLeft(boolean left) { this.left = left; }
     public void setRight(boolean right) { this.right = right; }
 
-    // ✅ These must be inside the class
     public void setY(int newY) {
         this.y = newY;
     }

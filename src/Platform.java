@@ -13,7 +13,7 @@ public class Platform {
         this.x = x;
         this.y = y;
         try {
-    image = ImageIO.read(new File("pickle.png")); // <- your file name
+    image = ImageIO.read(new File("pickle.png")); 
 } catch (IOException e) {
     e.printStackTrace();
 }

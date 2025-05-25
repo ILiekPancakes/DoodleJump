@@ -42,8 +42,8 @@ public class DoodleJump extends JPanel implements ActionListener, KeyListener {
         timer.start();
         
         retryButton = new JButton("Retry");
-        retryButton.setFocusable(false); // So arrow keys still work
-        retryButton.setVisible(false);   // Hide until game over
+        retryButton.setFocusable(false); 
+        retryButton.setVisible(false); 
         retryButton.addActionListener(e -> restartGame());
         this.add(retryButton);
         
@@ -88,7 +88,7 @@ public class DoodleJump extends JPanel implements ActionListener, KeyListener {
         generateMorePlatforms();
     }
     
-    int score = -impostor.getTotalClimb(); // climbing = negative Y
+    int score = -impostor.getTotalClimb();
          if (score >= 5000) {
                level = 4;
          } else if (score >= 3000) {
@@ -151,7 +151,6 @@ public class DoodleJump extends JPanel implements ActionListener, KeyListener {
     if (impostor.getVelY() > 0) {
         impostor.jump();
 
-        // 💥 If it's a disappearing platform, remove it
         if (p instanceof DisappearingPlatform) {
             platforms.remove(p);
         }
@@ -161,13 +160,12 @@ public class DoodleJump extends JPanel implements ActionListener, KeyListener {
         pu.collect();
 
         if (pu instanceof SuperJumpPowerUp) {
-            impostor.setJumpStrength(30); // 💥 super jump!
-            powerTimer = 500; // shared timer for now
+            impostor.setJumpStrength(30);
+            powerTimer = 500; 
         } else {
-            impostor.setGravity(0); // 🌕 moon gravity
-            impostor.setMoveSpeed(2); // slow left/right
-            powerTimer = 200; // shared timer for now
-        }
+            impostor.setGravity(0);
+            impostor.setMoveSpeed(2); 
+            powerTimer = 200;
 
         
     }
@@ -225,9 +223,8 @@ if (bg != null) {
     } else {
         retryButton.setVisible(false);
     }
-
-    // ✅ Draw "Press Any Key" message if not started
-    if (!gameStarted) {
+    
+        if (!gameStarted) {
         g.setColor(Color.BLACK);
         g.setFont(new Font("Arial", Font.BOLD, 30));
         g.drawString("Press Any Key to Start", 60, HEIGHT / 2);
@@ -281,7 +278,6 @@ if (bg != null) {
     int xOffset = (int) (Math.random() * (maxXOffset * 2)) - maxXOffset;
     int newX = Math.max(0, Math.min(WIDTH - 60, lastX + xOffset));
 
-    // 🔁 LEVEL-BASED PLATFORM LOGIC
     if (level == 1) {
         platforms.add(new Platform(newX, newY));
     } else if (level == 2) {
@@ -330,7 +326,6 @@ if (bg != null) {
     // Reset impostor
     impostor = new Impostor(WIDTH / 2 - 20, HEIGHT - 100);
 
-    // ⬇️ Reset platform reference points BEFORE calling generatePlatforms
     previousX = WIDTH / 2 - 30;
     previousY = HEIGHT - 50;
 
